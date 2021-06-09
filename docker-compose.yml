@@ -1,0 +1,10 @@
+version: "3"
+services: 
+  goapp: 
+    build:
+      context: .
+      dockerfile: ./build/Dockerfile
+    tty: true 
+    volumes:
+      - ./cmd:/go/src/app
+
