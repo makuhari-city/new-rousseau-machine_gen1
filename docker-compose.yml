@@ -7,10 +7,3 @@ services:
     tty: true 
     volumes:
       - ./cmd:/go/src/app
-
-  dump:
-    build:
-      context: .
-      dockerfile: ./dump/Dockerfile
-    ports:
-      - "8082:8082"
