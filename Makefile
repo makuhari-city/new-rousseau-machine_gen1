@@ -1,16 +1,14 @@
-setup: 
+.PHONY:setup stop start
+setup:
 	git submodule update -i
-	make build
 
-restart: 
-	make stop
-	make start
+restart: stop start
 
 stop: 
-	cd dump; docker-compose down; cd ../
+	cd dump; docker-compose down; 
+	cd vote; docker-compose down;
 
 start: 
-	cd dump; docker-compose up -d; cd ../
+	cd dump; docker-compose up -d; 
+	cd vote; docker-compose up -d; 
 
-build: 
-	cd dump; docker-compose up;cd --

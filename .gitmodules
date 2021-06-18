@@ -1,3 +1,6 @@
 [submodule "dump"]
 	path = dump
 	url = https://github.com/makuhari-city/dump.git
+[submodule "vote"]
+	path = vote
+	url = https://github.com/makuhari-city/vote.git
