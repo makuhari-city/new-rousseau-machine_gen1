@@ -17,13 +17,7 @@ make stop
 ```
 
 ## To test system
-### For dump module
 ```
-curl -v http://localhost:8082/db/hello/
+make test
 ```
-
-### For vote module
-```
-cd vote
-curl -H "Content-Type:application/json" -d @dinner.json http://localhost:8081/rpc/
-```
+if it returns "Hello" and json file like this "{"jsonrpc":"2.0","id":1,"result":{"beef":8.0,"chicken":8.0,"pork":8.0}}", it works.
