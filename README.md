@@ -16,7 +16,7 @@ make start
 make stop
 ```
 
-## Test system
+## To test system
 ### For dump module
 ```
 curl -v http://localhost:8082/db/hello/
