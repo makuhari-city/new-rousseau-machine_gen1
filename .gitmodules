@@ -4,3 +4,6 @@
 [submodule "vote"]
 	path = vote
 	url = https://github.com/makuhari-city/vote.git
+[submodule "proxy"]
+	path = proxy
+	url = https://github.com/makuhari-city/the-mouth-of-truth
