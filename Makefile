@@ -2,6 +2,10 @@
 setup:
 	git submodule update -i
 
+update:
+	git pull
+	git submodule update --remote
+
 restart: stop start
 
 stop:
