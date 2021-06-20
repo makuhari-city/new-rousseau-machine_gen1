@@ -8,6 +8,9 @@ update:
 
 restart: stop start
 
+restart_proxy:
+	cd proxy; docker-compose down;docker-compose up -d;
+
 stop:
 	cd proxy; docker-compose down;
 	cd vote; docker-compose down;
