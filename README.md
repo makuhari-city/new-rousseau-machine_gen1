@@ -6,6 +6,11 @@ git clone https://github.com/makuhari-city/rousseau-machine.git --recursive
 ```
 if you forgot to add "--recursive" option while cloning repositoy, just 'make setup' after cloning.
 
+## To update system.
+```
+make update
+```
+
 ## To start system
 ```
 make start
