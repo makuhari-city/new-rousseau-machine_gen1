@@ -25,7 +25,8 @@ make stop
 ```
 make test
 ```
-For dump, it returns "Hello"
-For vote, it returns {"jsonrpc":"2.0","id":1,"result":{"beef":8.0,"chicken":8.0,"pork":8.0}}
-For ipfs, it returns "Hello, ipfs api."
+- For dump, it returns "Hello"
+- For vote, it returns {"jsonrpc":"2.0","id":1,"result":{"beef":8.0,"chicken":8.0,"pork":8.0}}
+- For ipfs, it returns "Hello, ipfs api."
+
 
