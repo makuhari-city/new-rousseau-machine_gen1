@@ -26,5 +26,6 @@ start:
 	cd proxy; docker-compose up -d;
 
 test:
-	curl -v http://localhost/db/hello/;echo "\n"
-	cd vote;curl -H "Content-Type:application/json" -d @dinner.json http://localhost/rpc/
+	curl -v http://localhost/db/hello/;echo "\n";
+	cd vote;curl -v -H "Content-Type:application/json" -d @dinner.json http://localhost/rpc/;echo "\n";
+	curl -v http://localhost/hello-ipfs/;
