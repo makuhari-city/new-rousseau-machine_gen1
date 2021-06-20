@@ -21,8 +21,11 @@ make start
 make stop
 ```
 
-## To test system
+## To test system (connection test only)
 ```
 make test
 ```
-if it returns "Hello" and json file like this "{"jsonrpc":"2.0","id":1,"result":{"beef":8.0,"chicken":8.0,"pork":8.0}}", it works.
+For dump, it returns "Hello"
+For vote, it returns {"jsonrpc":"2.0","id":1,"result":{"beef":8.0,"chicken":8.0,"pork":8.0}}
+For ipfs, it returns "Hello, ipfs api."
+
