@@ -65,9 +65,6 @@ func main() {
 				return
 			}
 
-			// str_json := string(body)
-			// fmt.Println(str_json)
-
 			var pubResp PublishResponse
 			if err := json.Unmarshal(body, &pubResp); err != nil {
 				fmt.Fprintf(os.Stderr, "json error: %s", err)
@@ -76,46 +73,6 @@ func main() {
 
 			fmt.Fprintln(w, pubResp)
 
-			// req := sh.Request("name/publish", "/ipfs/"+"QmPATpRyHsRxDkDQtLzpoDKGe3Dt7icWSz2THWjQMt3Xx7").Option("resolve", false)
-			// req.Option("lifetime", time.Hour*100)
-			// req.Option("ttl", time.Second*60)
-			// // req.Option("timeout", time.Second*60)
-
-			// var pubResp PublishResponse
-			// ctx := context.Background()
-			// ctx, cancel := context.WithTimeout(ctx, 60*time.Second)
-			// fmt.Printf("cancel %s\n", cancel)
-
-			// err := req.Exec(ctx, &pubResp)
-			// if err != nil {
-			// 	log.Fatal(err)
-			// 	return
-			// }
-
-			// resp, err := sh.PublishWithDetails("/ipfs/"+"QmR2HwcTCTD5iBCkixbth1mgHJcLCdQxwJPEd15et5gSgw", "", time.Hour*100, time.Second*60, false)
-			// if err != nil {
-			// 	log.Fatal(err)
-			// 	return
-			// }
-			// fmt.Printf("sub %s\n", pubResp)
-
-			// err = sh.Publish("12D3KooWD1PhECTxaZzA5e3bg89z2dQAnm41BjZDKoT6K323UbFx", bodyString)
-
-			// var topic = "makuhari-vote-list"
-			// sub, err := sh.PubSubSubscribe(topic)
-			// time.Sleep(10 * time.Millisecond)
-			// if err != nil {
-			// 	log.Fatal(err)
-			// 	return
-			// }
-			// fmt.Printf("sub %s\n", sub)
-
-			// // err = sh.PubSubPublish(topic, bodyString)
-
-			// r, err := sub.Next()
-			// fmt.Printf("Data %s\n", r.Data)
-
-			// sub.Cancel()
 		case "POST":
 			bodyBytes, err := ioutil.ReadAll(r.Body)
 			if err != nil {
@@ -123,13 +80,6 @@ func main() {
 				return
 			}
 			bodyString := string(bodyBytes)
-
-			// // decode to structure
-			// var ipfsData IpfsData
-			// if err := json.Unmarshal(bodyBytes, &ipfsData); err != nil {
-			// 	log.Fatal(err)
-			// 	return
-			// }
 
 			fmt.Println("post content", bodyString)
 			// cid, err := sh.Add(strings.NewReader(newStr))
@@ -142,6 +92,7 @@ func main() {
 			fmt.Fprintln(w, cid)
 		case "GET":
 			var cid = r.FormValue("cid")
+			// var cid = "/ipns/k51qzi5uqu5dhd49vps5hzi3a93e1zd31mi0tfd5g6imkk6duc02yyu124vvs3"
 			fmt.Println("Cat ", cid)
 			reader, err := sh.Cat(cid)
 			if err != nil {
