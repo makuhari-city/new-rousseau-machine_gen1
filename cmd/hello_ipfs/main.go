@@ -46,7 +46,14 @@ func main() {
 
 		switch r.Method {
 		case "PUT":
-			url_target := "http://ipfs0:5001/api/v0/name/publish?arg=%2Fipfs%2FQmPATpRyHsRxDkDQtLzpoDKGe3Dt7icWSz2THWjQMt3Xx7&lifetime=100h0m0s&resolve=false&ttl=1m0s"
+			bodyBytes, err := ioutil.ReadAll(r.Body)
+			if err != nil {
+				log.Fatal(err)
+				return
+			}
+			bodyString := string(bodyBytes)
+
+			url_target := "http://ipfs0:5001/api/v0/name/publish?arg=%2Fipfs%2F" + bodyString + "&lifetime=100h0m0s&resolve=false&ttl=1m0s"
 			args := url.Values{}
 			// args.Add("arg", "/ipfs/QmPATpRyHsRxDkDQtLzpoDKGe3Dt7icWSz2THWjQMt3Xx7")
 			// args.Add("lifetime", "1m0s")
@@ -82,7 +89,6 @@ func main() {
 			bodyString := string(bodyBytes)
 
 			fmt.Println("post content", bodyString)
-			// cid, err := sh.Add(strings.NewReader(newStr))
 			cid, err := sh.Add(bytes.NewBufferString(bodyString))
 			if err != nil {
 				fmt.Fprintf(os.Stderr, "error: %s", err)
