@@ -9,13 +9,15 @@ update:
 restart: stop start
 
 stop:
-	cd dump; docker-compose down;
-	cd vote; docker-compose down;
 	cd proxy; docker-compose down;
+	cd vote; docker-compose down;
+	cd dump; docker-compose down;
+	docker-compose down;
 	docker network rm makuhari_city;
 
 start:
 	docker network create makuhari_city;
+	docker-compose up -d;
 	cd dump; docker-compose up -d;
 	cd vote; docker-compose up -d;
 	cd proxy; docker-compose up -d;
