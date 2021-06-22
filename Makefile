@@ -8,11 +8,7 @@ update:
 
 restart: stop start
 
-restart_proxy:
-	cd proxy; docker-compose down;docker-compose up -d;
-
 stop:
-	cd proxy; docker-compose down;
 	cd vote; docker-compose down;
 	cd dump; docker-compose down;
 	docker-compose down;
@@ -23,7 +19,6 @@ start:
 	docker-compose up -d;
 	cd dump; docker-compose up -d;
 	cd vote; docker-compose up -d;
-	cd proxy; docker-compose up -d;
 
 test:
 	curl -v http://localhost/db/hello/;echo "\n";
