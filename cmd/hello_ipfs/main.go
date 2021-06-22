@@ -25,20 +25,6 @@ type PublishResponse struct {
 }
 
 func main() {
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintln(w, "Hello, ipfs api.")
-	})
-
-	http.HandleFunc("/post", func(w http.ResponseWriter, r *http.Request) {
-		bodyBytes, err := ioutil.ReadAll(r.Body)
-		if err != nil {
-			log.Fatal(err)
-		}
-		bodyString := string(bodyBytes)
-		fmt.Printf("post content %s\n", bodyString)
-		fmt.Fprintln(w, bodyString)
-	})
-
 	http.HandleFunc("/ipfs/", func(w http.ResponseWriter, r *http.Request) {
 		// Where your local node is running on localhost:5001
 		sh := shell.NewShell("ipfs0:5001")
