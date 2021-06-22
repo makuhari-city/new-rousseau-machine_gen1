@@ -39,7 +39,7 @@ func main() {
 		fmt.Fprintln(w, bodyString)
 	})
 
-	http.HandleFunc("/ipfs", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/ipfs/", func(w http.ResponseWriter, r *http.Request) {
 		// Where your local node is running on localhost:5001
 		sh := shell.NewShell("ipfs0:5001")
 		sh.SetTimeout(1 * time.Second)
