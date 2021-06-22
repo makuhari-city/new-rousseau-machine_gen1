@@ -1,5 +1,5 @@
 .vscode/
 .devcontainer/
 
-data/
-ipfs/
+/data/
+/ipfs/data

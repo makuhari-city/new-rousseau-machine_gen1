@@ -7,7 +7,7 @@ services:
     command: go run main.go
     tty: true 
     volumes:
-      - ./ipfs_api:/go/src/app
+      - ./ipfs/api:/go/src/app
     ports:
       - "8091:8080"
     networks:
@@ -22,7 +22,7 @@ services:
       - "5001:5001" # ipfs api
       - "8090:8080" # ipfs gateway
     volumes:
-      - ./ipfs:/data/ipfs
+      - ./ipfs/data:/data/ipfs
     networks:
         - makuhari_city
 
