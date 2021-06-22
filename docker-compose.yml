@@ -3,7 +3,7 @@ services:
   goapp: 
     build:
       context: .
-      dockerfile: ./build/Dockerfile
+      dockerfile: ./ipfs/Dockerfile
     command: go run main.go
     tty: true 
     volumes:
