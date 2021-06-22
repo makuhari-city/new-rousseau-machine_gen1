@@ -4,11 +4,15 @@ services:
     build:
       context: .
       dockerfile: ./build/Dockerfile
+    command: go run hello_ipfs/main.go
     tty: true 
     volumes:
       - ./cmd:/go/src/app
     ports:
       - "8091:8080"
+    networks:
+        - makuhari_city
+
   ipfs0:
     container_name: ipfs0
     image: ipfs/go-ipfs:latest
@@ -19,3 +23,9 @@ services:
       - "8090:8080" # ipfs gateway
     volumes:
       - ./data/ipfs:/data/ipfs
+    networks:
+        - makuhari_city
+
+networks:
+  makuhari_city:
+    external: true
