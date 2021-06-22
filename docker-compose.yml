@@ -1,6 +1,6 @@
 version: "3"
 services: 
-  goapp: 
+  ipfs-api: 
     build:
       context: .
       dockerfile: ./ipfs/Dockerfile
