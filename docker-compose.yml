@@ -10,7 +10,7 @@ services:
     volumes:
         - ./proxy/public:/var/www/html
         - ./proxy/conf.d/default.conf:/etc/nginx/conf.d/default.conf
-        - ../../ssl/cert:/etc/nginx/ssl
+        - ../ssl/cert:/etc/nginx/ssl
     networks:
         - makuhari_city
     extra_hosts:
