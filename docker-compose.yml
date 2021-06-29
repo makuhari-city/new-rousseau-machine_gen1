@@ -20,10 +20,11 @@ services:
     build:
       context: .
       dockerfile: ./ipfs/Dockerfile
-    command: go run main.go
+    command: npm start
     tty: true 
     volumes:
-      - ./ipfs/api:/go/src/app
+      - ./ipfs/src:/app/src
+      - ./ipfs/orbitdb:/app/orbitdb
     ports:
       - "8091:8080"
     networks:
@@ -32,7 +33,12 @@ services:
   ipfs0:
     container_name: ipfs0
     image: ipfs/go-ipfs:latest
-    command: ["daemon", "--enable-pubsub-experiment"]
+    command: ["daemon", "--enable-gc", "--enable-pubsub-experiment", "--enable-namesys-pubsub"]
+    environment:
+      IPFS_HOST: 'ipfs'
+      ORBITDB_DIR: '/orbitdb'
+      FORCE_HTTP1: 'true'
+
     ports:
       - "4001:4001" # ipfs swarm
       - "5001:5001" # ipfs api

@@ -1,8 +1,23 @@
-FROM golang:1.15.13-alpine3.13
-RUN apk add --update && apk add git && apk add curl
-RUN mkdir /go/src/app
-WORKDIR /go/src/app
-ADD . /go/src/app
+FROM node:12
 
-# Install dependencies
-RUN go get -u github.com/ipfs/go-ipfs-api
+# アプリケーションディレクトリを作成する
+WORKDIR /app
+RUN mkdir /app/src
+RUN mkdir /app/orbitdb
+
+
+# アプリケーションの依存関係をインストールする
+# ワイルドカードを使用して、package.json と package-lock.json の両方が確実にコピーされるようにします。
+# 可能であれば (npm@5+)
+COPY /ipfs/package.json /app
+
+RUN npm install
+# 本番用にコードを作成している場合
+# RUN npm install --only=production
+
+# アプリケーションのソースをバンドルする
+# COPY . .
+
+EXPOSE 8080
+# CMD [ "npm", "start" ]
+# CMD [ "node", "server.js" ]

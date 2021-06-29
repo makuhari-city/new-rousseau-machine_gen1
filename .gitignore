@@ -3,3 +3,5 @@
 
 /data/
 /ipfs/data
+/ipfs/orbitdb/*
+node_modules
