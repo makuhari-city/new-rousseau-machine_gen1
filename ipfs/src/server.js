@@ -11,6 +11,7 @@ const IpfsHttpClient = require('ipfs-http-client');
 const PORT = 8080;
 const HOST = '0.0.0.0';
 
+const testAddress = 'makuhari-test';
 const citizenAddress = 'makuhari-citizen-test';
 const topicAddress = 'makuhari-topic-test';
 const infoAddress = 'makuhari-info-test1.3';
@@ -44,6 +45,45 @@ app.use(express.json());
 app.get('/', (req, res) => {
   res.status(200).send('Hello Makuhari City');
 });
+
+app.post('/', (req, res) => {
+  const text = req.body;
+  postTest.push({ res: res, text: text });
+});
+
+const postTest = async.queue((params, callback) => {
+  let text = params.text;
+  if (text === undefined) {
+    params.res.status(501).send('test is invalid');
+  }
+  let orbitdb;
+  initIPFSInstance()
+    .then(async (ipfs) => {
+      orbitdb = await OrbitDB.createInstance(ipfs);
+
+      // load info database
+      const db = await orbitdb.log(testAddress);
+      await db.load();
+      // add text
+      let hash = await db.add(JSON.stringify(text));
+      console.log("registration success");
+      console.log(hash);
+
+      await orbitdb.disconnect();
+
+      params.res.status(201).send(hash);
+    })
+    .catch(async (error) => {
+      if (orbitdb !== undefined) {
+        await orbitdb.disconnect();
+      }
+      console.log(error);
+      params.res.status(500).send(error);
+    })
+    .finally(() => {
+      callback();
+    });
+}, 1);
 
 //------------------------------------------------------------
 //--- Citizen
