@@ -12,9 +12,10 @@ const PORT = 8080;
 const HOST = '0.0.0.0';
 
 const testAddress = 'makuhari-test';
-const citizenAddress = 'makuhari-citizen-test1-3';
+const logAddress = 'makuhari-log-test';
+const citizenAddress = 'makuhari-citizen-test';
 const topicAddress = 'makuhari-topic-test';
-const infoAddress = 'makuhari-info-test1.3';
+const infoAddress = 'makuhari-info-test';
 
 const initIPFSInstance = async () => {
   return await IpfsHttpClient.create({
@@ -153,16 +154,23 @@ app.get('/citizen/:uid/', async (req, res) => {
 app.post('/citizen/', async (req, res) => {
   console.log(req.body);
   const uid = req.body.uid;
-  const data = req.body.data;
+  const name = req.body.name;
+  const phash = req.body.hash;
+
+  console.log('uid')
+  console.log(uid)
+  console.log(name)
+  if (uid == undefined || name == undefined) {
+    return res.status(500).send("error");
+  }
 
   try {
     const db = await orbitdb.kvstore(citizenAddress, { overwrite: false });
     await db.load();
-    await delay(1);
 
     const hash = await db.put(uid, {
-      data: data,
-      created: '2021/06/26',
+      name: name,
+      hash: phash
     });
     console.log(hash);
 
@@ -315,6 +323,74 @@ app.post('/info/', async (req, res) => {
 
     res.status(201).send(hash);
   } catch (error) {
+    console.log(error);
+    res.status(500).send(error);
+  }
+});
+
+//------------------------------------------------------------
+//--- log some data
+//------------------------------------------------------------
+
+//--- get all log
+app.get('/log/', async (req, res) => {
+  try {
+    const db = await orbitdb.log(logAddress);
+    await db.load();
+    const value = db.iterator({ limit: -1 })
+    .collect()
+    .map((e) => e.payload.value)
+
+    res.status(200).send(value);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send(error);
+  }
+});
+
+//--- get some data
+app.get('/log/:hash/', async (req, res) => {
+  const hash = req.params.hash;
+
+  try {
+    console.log(hash);
+    const db = await orbitdb.log(logAddress);
+    await db.load();
+
+    var value = db.get(hash);
+    if (value === undefined) {
+      res.status(204).send('no vote info found for given hash');
+    }
+    res.status(200).send(value.payload.value);
+  } catch (error) {
+    console.log(error);
+    res.status(500).send(error);
+  }
+});
+
+
+//--- Post some data
+app.post('/log/:hash/', async (req, res) => {
+  const hash = req.params.hash;
+
+  console.log('hash')
+  console.log(hash)
+  if (hash == undefined) {
+    return res.status(500).send("error");
+  }
+
+  try {
+    const db = await orbitdb.log(logAddress);
+    await db.load();
+
+    // add hash
+    let rhash = await db.add(hash);
+    console.log(rhash);
+
+    db.close();
+    res.status(201).send(rhash);
+  } catch (error) {
+    console.log('error');
     console.log(error);
     res.status(500).send(error);
   }

@@ -1,7 +1,8 @@
 .vscode/
 .devcontainer/
 
-/data/
 /ipfs/data
 /ipfs/orbitdb/*
 node_modules
+
+__pycache__

@@ -17,6 +17,7 @@ services:
         - "host.docker.internal:host-gateway"
 
   ipfs-api: 
+    container_name: ipfsapi
     build:
       context: .
       dockerfile: ./ipfs/Dockerfile
