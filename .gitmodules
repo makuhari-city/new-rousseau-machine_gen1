@@ -4,3 +4,12 @@
 [submodule "vote"]
 	path = vote
 	url = https://github.com/makuhari-city/vote.git
+[submodule "em-fptp"]
+	path = em-fptp
+	url = git@github.com:makuhari-city/em-fptp.git
+[submodule "em-liquid"]
+	path = em-liquid
+	url = git@github.com:makuhari-city/em-liquid.git
+[submodule "em-borda"]
+	path = em-borda
+	url = git@github.com:makuhari-city/em-borda.git
