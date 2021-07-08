@@ -34,3 +34,5 @@ test:
 	curl -v http://localhost/fptp/hello/;
 	curl -v http://localhost/liquid/hello/;
 	curl -v http://localhost/borda/hello/;
+	curl -v http://localhost/rpc/hello/;
+	curl -v http://localhost/ipfs/;curl -v -d "test" http://localhost/ipfs/;
