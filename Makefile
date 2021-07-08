@@ -9,6 +9,9 @@ update:
 restart: stop start
 
 stop:
+	cd em-borda; docker-compose down;
+	cd em-liquid; docker-compose down;
+	cd em-fptp; docker-compose down;
 	cd vote; docker-compose down;
 	cd dump; docker-compose down;
 	docker-compose down;
@@ -19,10 +22,17 @@ start:
 	docker-compose up -d;
 	cd dump; docker-compose up -d;
 	cd vote; docker-compose up -d;
-	curl -d '["fptp", "http://ftpt:8101"]' -H "Content-Type:application/json" http://localhost/module/;
-	curl -d '["liquid", "http://liquid:8102"]' -H "Content-Type:application/json" http://localhost/module/;
-	curl -d '["borda", "http://borda:8103"]' -H "Content-Type:application/json" http://localhost/module/;
+	cd em-fptp; docker-compose up -d;
+	cd em-liquid; docker-compose up -d;
+	cd em-borda; docker-compose up -d;
+	curl -d '["fptp", "https://vote.metacity.jp"]' -H "Content-Type:application/json" https://vote.metacity.jp/rpc/module/;
+	curl -d '["liquid", "https//vote.metacity.jp"]' -H "Content-Type:application/json" https://vote.metacity.jp/rpc/module/;
+	curl -d '["borda", "https://vote.metacity.jp"]' -H "Content-Type:application/json" https://vote.metacity.jp/rpc/module/;
 
 test:
-	cd vote;curl -v -H "Content-Type:application/json" -d @sample.json http://localhost/rpc/;echo "\n";
+	curl -v http://localhost/hello-ipfs/;
+	curl -v http://localhost/fptp/hello/;
+	curl -v http://localhost/liquid/hello/;
+	curl -v http://localhost/borda/hello/;
+	curl -v http://localhost/rpc/hello/;
 	curl -v http://localhost/ipfs/;curl -v -d "test" http://localhost/ipfs/;
