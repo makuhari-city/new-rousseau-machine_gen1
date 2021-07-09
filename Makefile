@@ -14,12 +14,14 @@ stop:
 	cd em-fptp; docker-compose down;
 	cd vote; docker-compose down;
 	cd dump; docker-compose down;
+	# cd citizen; docker-compose down;
 	docker-compose down;
 	docker network rm makuhari_city;
 
 start:
 	docker network create makuhari_city;
 	docker-compose up -d;
+	# cd citizen; docker-compose up -d;
 	cd dump; docker-compose up -d;
 	cd vote; docker-compose up -d;
 	cd em-fptp; docker-compose up -d;
@@ -30,9 +32,8 @@ start:
 	curl -d '["borda", "https://vote.metacity.jp"]' -H "Content-Type:application/json" https://vote.metacity.jp/rpc/module/;
 
 test:
-	curl -v http://localhost/hello-ipfs/;
 	curl -v http://localhost/fptp/hello/;
 	curl -v http://localhost/liquid/hello/;
 	curl -v http://localhost/borda/hello/;
 	curl -v http://localhost/rpc/hello/;
-	curl -v http://localhost/ipfs/;curl -v -d "test" http://localhost/ipfs/;
+	curl -v http://localhost/ipfs/;curl -v -d "test" -H "Content-Type:text/plain" http://localhost/ipfs/;

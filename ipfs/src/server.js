@@ -71,8 +71,6 @@ const postTest = async.queue((params, callback) => {
 
   initIPFSInstance()
     .then(async (ipfs) => {
-      // orbitdb = await OrbitDB.createInstance(ipfs);
-
       // load info database
       const db = await orbitdb.log(testAddress);
       await db.load();
@@ -81,14 +79,9 @@ const postTest = async.queue((params, callback) => {
       console.log('registration success');
       console.log(hash);
 
-      await orbitdb.disconnect();
-
       params.res.status(201).send(hash);
     })
     .catch(async (error) => {
-      if (orbitdb !== undefined) {
-        await orbitdb.disconnect();
-      }
       console.log(error);
       params.res.status(500).send(error);
     })
@@ -207,12 +200,10 @@ app.get('/topic/:uid/', async (req, res) => {
 
   console.log(uid);
   try {
-    const orbitdb = await OrbitDB.createInstance(ipfs);
     const db = await orbitdb.kvstore(topicAddress, { overwrite: false });
     await db.load();
 
     var value = db.get(uid);
-    await orbitdb.disconnect();
     if (value === undefined) {
       res.status(204).send('no tag found for given uid');
     }
@@ -230,7 +221,6 @@ const postTopic = async.queue((params, callback) => {
   let orbitdb;
   initIPFSInstance()
     .then(async (ipfs) => {
-      orbitdb = await OrbitDB.createInstance(ipfs);
       const db = await orbitdb.kvstore(topicAddress, { overwrite: false });
       await db.load();
 
@@ -240,14 +230,9 @@ const postTopic = async.queue((params, callback) => {
       });
       console.log(rc);
 
-      await orbitdb.disconnect();
-
       params.res.status(201).send(rc);
     })
     .catch(async (error) => {
-      if (orbitdb !== undefined) {
-        await orbitdb.disconnect();
-      }
       console.log(error);
       params.res.status(500).send(error);
     })
