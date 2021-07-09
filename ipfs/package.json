@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "date-utils": "^1.2.21",
-    "express": "^4.16.1",
+    "express": "^4.17.1",
     "ipfs": "^0.55.4",
     "ipfs-http-client": "^50.1.2",
     "orbit-db": "^0.26.1"
