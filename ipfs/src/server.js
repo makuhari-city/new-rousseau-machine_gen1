@@ -317,6 +317,19 @@ app.post('/info/', async (req, res) => {
 //--- log some data
 //------------------------------------------------------------
 
+//--- get log database identity
+app.get('/log/id/', async (req, res) => {
+  try {
+    const db = await orbitdb.log(logAddress);
+    const identity = db.identity;
+    res.status(200).send(identity.toJSON());
+  } catch (error) {
+    console.log(error);
+    res.status(500).send(error);
+  }
+});
+
+
 //--- get all log
 app.get('/log/', async (req, res) => {
   try {

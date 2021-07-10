@@ -36,4 +36,4 @@ test:
 	curl -v http://localhost/liquid/hello/;
 	curl -v http://localhost/borda/hello/;
 	curl -v http://localhost/rpc/hello/;
-	curl -v http://localhost/ipfs/;curl -v -d "test" -H "Content-Type:text/plain" http://localhost/ipfs/;
+	curl -v http://localhost/ipfs/;curl -v -d '{"data":"hello world"}' -X POST -H "Content-Type:application/json" http://localhost/ipfs/;
