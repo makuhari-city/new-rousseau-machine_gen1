@@ -8,6 +8,14 @@ update:
 
 restart: stop start
 
+build:
+	docker-compose build;
+	cd dump; docker-compose build;
+	cd vote; docker-compose build;
+	cd em-fptp; docker-compose build;
+	cd em-liquid; docker-compose build;
+	cd em-borda; docker-compose build;
+
 stop:
 	cd em-borda; docker-compose down;
 	cd em-liquid; docker-compose down;
@@ -28,7 +36,7 @@ start:
 	cd em-liquid; docker-compose up -d;
 	cd em-borda; docker-compose up -d;
 	curl -d '["fptp", "https://vote.metacity.jp"]' -H "Content-Type:application/json" https://vote.metacity.jp/rpc/module/;
-	curl -d '["liquid", "https//vote.metacity.jp"]' -H "Content-Type:application/json" https://vote.metacity.jp/rpc/module/;
+	curl -d '["liquid", "https://vote.metacity.jp"]' -H "Content-Type:application/json" https://vote.metacity.jp/rpc/module/;
 	curl -d '["borda", "https://vote.metacity.jp"]' -H "Content-Type:application/json" https://vote.metacity.jp/rpc/module/;
 
 test:
