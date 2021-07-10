@@ -317,6 +317,19 @@ app.post('/info/', async (req, res) => {
 //--- log some data
 //------------------------------------------------------------
 
+//--- get log database identity
+app.get('/log/id/', async (req, res) => {
+  try {
+    const db = await orbitdb.log(logAddress);
+    const identity = db.identity;
+    res.status(200).send(identity.toJSON());
+  } catch (error) {
+    console.log(error);
+    res.status(500).send(error);
+  }
+});
+
+
 //--- get all log
 app.get('/log/', async (req, res) => {
   try {
@@ -355,12 +368,12 @@ app.get('/log/:hash/', async (req, res) => {
 
 
 //--- Post some data
-app.post('/log/:hash/', async (req, res) => {
-  const hash = req.params.hash;
+app.post('/log/', async (req, res) => {
+  const body = req.body;
 
-  console.log('hash')
-  console.log(hash)
-  if (hash == undefined) {
+  console.log('body')
+  console.log(body)
+  if (body == undefined) {
     return res.status(500).send("error");
   }
 
@@ -368,8 +381,8 @@ app.post('/log/:hash/', async (req, res) => {
     const db = await orbitdb.log(logAddress);
     await db.load();
 
-    // add hash
-    let rhash = await db.add(hash);
+    // add body
+    let rhash = await db.add(body);
     console.log(rhash);
 
     db.close();
