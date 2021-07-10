@@ -36,7 +36,7 @@ start:
 	cd em-liquid; docker-compose up -d;
 	cd em-borda; docker-compose up -d;
 	curl -d '["fptp", "https://vote.metacity.jp"]' -H "Content-Type:application/json" https://vote.metacity.jp/rpc/module/;
-	curl -d '["liquid", "https//vote.metacity.jp"]' -H "Content-Type:application/json" https://vote.metacity.jp/rpc/module/;
+	curl -d '["liquid", "https://vote.metacity.jp"]' -H "Content-Type:application/json" https://vote.metacity.jp/rpc/module/;
 	curl -d '["borda", "https://vote.metacity.jp"]' -H "Content-Type:application/json" https://vote.metacity.jp/rpc/module/;
 
 test:
