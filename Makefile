@@ -8,6 +8,14 @@ update:
 
 restart: stop start
 
+build:
+	docker-compose build;
+	cd dump; docker-compose build;
+	cd vote; docker-compose build;
+	cd em-fptp; docker-compose build;
+	cd em-liquid; docker-compose build;
+	cd em-borda; docker-compose build;
+
 stop:
 	cd em-borda; docker-compose down;
 	cd em-liquid; docker-compose down;
