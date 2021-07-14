@@ -13,3 +13,6 @@
 [submodule "em-borda"]
 	path = em-borda
 	url = git@github.com:makuhari-city/em-borda.git
+[submodule "frontend"]
+	path = frontend
+	url = git@github.com:makuhari-city/frontend.git

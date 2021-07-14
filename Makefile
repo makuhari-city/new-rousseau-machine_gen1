@@ -15,8 +15,10 @@ build:
 	cd em-fptp; docker-compose build;
 	cd em-liquid; docker-compose build;
 	cd em-borda; docker-compose build;
+	cd frontend; docker-compose build; 
 
 stop:
+	cd frontend; docker-compose down;
 	cd em-borda; docker-compose down;
 	cd em-liquid; docker-compose down;
 	cd em-fptp; docker-compose down;
@@ -38,6 +40,7 @@ start:
 	curl -d '["fptp", "https://vote.metacity.jp"]' -H "Content-Type:application/json" https://vote.metacity.jp/rpc/module/;
 	curl -d '["liquid", "https://vote.metacity.jp"]' -H "Content-Type:application/json" https://vote.metacity.jp/rpc/module/;
 	curl -d '["borda", "https://vote.metacity.jp"]' -H "Content-Type:application/json" https://vote.metacity.jp/rpc/module/;
+	cd frontend; docker-compose up -d;
 
 test:
 	curl -v http://localhost/fptp/hello/;
