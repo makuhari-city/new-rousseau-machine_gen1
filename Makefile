@@ -18,7 +18,7 @@ build:
 	cd frontend; docker-compose build; 
 
 stop:
-	cd frontend; docker-compose build;
+	cd frontend; docker-compose down;
 	cd em-borda; docker-compose down;
 	cd em-liquid; docker-compose down;
 	cd em-fptp; docker-compose down;

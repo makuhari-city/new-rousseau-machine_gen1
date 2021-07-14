@@ -15,4 +15,4 @@
 	url = git@github.com:makuhari-city/em-borda.git
 [submodule "frontend"]
 	path = frontend
-	url = https://github.com/makuhari-city/frontend
+	url = git@github.com:makuhari-city/frontend.git
