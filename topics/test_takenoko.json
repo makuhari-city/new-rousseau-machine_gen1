@@ -1,0 +1,18 @@
+{
+  "delegates": {
+    "b2d2094a-aa41-41a7-a678-7bab779bde62": "minorisakai"
+  },
+  "description": "幕張市としてどちらを応援するか決議します。",
+  "id": "42dea22f-4e74-44a7-b77f-eea8c95f4236",
+  "policies": {
+    "6216b881-b46e-4462-952b-66486d03ca5e": "きのこの山",
+    "9daabeac-c36c-4d84-850c-5a63aa60e8e7": "たけのこの里"
+  },
+  "title": "[動作確認] たけのこの里 or きのこの山",
+  "votes": {
+    "b2d2094a-aa41-41a7-a678-7bab779bde62": {
+      "6216b881-b46e-4462-952b-66486d03ca5e": 26,
+      "9daabeac-c36c-4d84-850c-5a63aa60e8e7": 9
+    }
+  }
+}
