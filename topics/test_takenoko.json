@@ -1,6 +1,11 @@
 {
   "delegates": {
-    "b2d2094a-aa41-41a7-a678-7bab779bde62": "minorisakai"
+    "b2d2094a-aa41-41a7-a678-7bab779bde62": "minorisakai",
+	"089b6176-1cdb-47ba-a220-7daee5f9a3f9": "酒井 康史",
+	"a4b95a4e-810a-4e80-9cea-bdf47fa13937": "吉田 泰己",
+	"a6d73161-c47b-4643-93ee-77bd8b993c1d": "河ノ 剛史",
+	"87dad0f2-e5d9-40e9-917a-b59a5839156a": "瀬賀 未久",
+	"ec61d459-7249-441a-b1eb-ffdbc22e640b": "進藤 然子"
   },
   "description": "幕張市としてどちらを応援するか決議します。",
   "id": "42dea22f-4e74-44a7-b77f-eea8c95f4236",

@@ -5,4 +5,6 @@
 /ipfs/orbitdb/*
 node_modules
 
+/topics/reps
+
 __pycache__
