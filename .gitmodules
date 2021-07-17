@@ -16,3 +16,6 @@
 [submodule "frontend"]
 	path = frontend
 	url = git@github.com:makuhari-city/frontend.git
+[submodule "em-indirect"]
+	path = em-indirect
+	url = git@github.com:makuhari-city/em-indirect
