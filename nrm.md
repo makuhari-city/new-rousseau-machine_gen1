@@ -1,28 +1,30 @@
+
 # New Rousseau Machine
 
 Rather than starting with improvements to an existing city, Makuhari City began
-to develop governance mechanisms first (the operating system) to ponder an
-alternative to the city&rsquo;s shape that we now live.
+to develop governance mechanisms first (the operating system) to seek an
+alternative to the city&rsquo;s shape that we now know and live.
 
 As a pilot project, we developed a multi-rule voting system, The &ldquo;New Roussau
-Machine,&rdquo; that outputs different voting results using four separate aggregation
-rules. We have shown that the four rules would not always converge into the same
-outcome, thus presenting a parallel world. Visitors will imagine the future
-using different democratic methods while observing the rules themselves present
-other collective wills calling for more deliberation.
+Machine,&rdquo; that outputs different voting results using [four separate aggregation
+rules](#orgf8d9297). The results have shown that the four rules would not always converge into
+the same outcome, thus presenting a parallel world. Visitors will imagine the
+future while observing the collective wills that seem to contradict just by
+using a different method of counting votes [projected on a temporal construction
+wall](#org713bff4).
 
 The votes collected by the people participating in this project (i.e., the
-citizens) will define the direction of the Multi-Layered City &ldquo;Makuhari City&rdquo;
-project with the entire budget raised through taxes, crowdfunding, and donations
-to verify decentralized governance. This poll will influence the policy of the
+citizens) will define [the direction of the &ldquo;Multi Layer City -Makuhari-&rdquo;](#org00aa817) and the
+budget will entirely raised through taxes, crowdfunding, and donations to verify
+decentralized governance. This poll will influence the ongoing policy of the
 multi-layered city of Makuhari (and may be adopted as is).
 
-The system utilizes decentralized storage in transparency, and the results
-making it tamper-proof. The results of this vote will guide further development
-of this project to a decentralized autonomous organization (DAO) that advocates
+The system utilizes decentralized storage for transparency, and the results
+making it tamper-proof. Further development of this project seeks to be an
+decentralized autonomous organization (DAO) that it&rsquo;s intrest revolving around
 the cultivation of art and culture.
 
-# Aggregation Rules
+# Aggregation Rules <a id="orgf8d9297"></a>
 
 For a single act of voting, we obtained voting results according to the
 following four aggregation rules.
@@ -47,9 +49,10 @@ following four aggregation rules.
 -   Liquid Democracy
     
     A method of voting that combines direct and indirect democracy.
+    
 
 
-# Wall Art & Results
+# Wall Art & Results <a id="org713bff4"></a>
 
 Threads used in construction sites visualize the results of votes for each
 aggregation rule. The colors indicate the different rules.
@@ -117,7 +120,8 @@ aggregation rule. The colors indicate the different rules.
 </table>
 
 
-# Topics
+
+# Topics <a id="org00aa817"></a>
 
 We asked the participants to vote on following three questions that would help
 us decide the future direction of Makuhari City. In addition to the direct vote
@@ -166,6 +170,7 @@ to directly contribute to the DX promotion of existing government services. This
 concept is not new, but it will undoubtedly provide a suitable living
 environment for residents and will likely support the local community and
 government.
+
 
 ## Q2: Demographics
 
