@@ -1,4 +1,4 @@
-# rousseau-machine
+# New Rousseau Machine (Gen1)
 
 ## To get started
 1. Download the repository
