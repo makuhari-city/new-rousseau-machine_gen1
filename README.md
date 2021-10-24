@@ -3,7 +3,7 @@
 ## To get started
 1. Download the repository
 ```
-git clone https://github.com/makuhari-city/rousseau-machine.git --recursive
+git clone https://github.com/makuhari-city/new-rousseau-machine_gen1.git --recursive
 ```
 if you forgot to add "--recursive" option while cloning repositoy, just 'make setup' after cloning.
 
@@ -13,17 +13,8 @@ Create an SSL certificate, rewrite the destination directory path into docker-co
 docker-compose.yml:
 ```
 volumes:
-	- ./ssl/cert:/etc/nginx/ssl
+	- ../ssl/cert:/etc/nginx/ssl
 ```
-
-proxy/conf.d/default.conf:
-```
-listen 443 ssl;
-ssl_certificate		/etc/nginx/ssl/metacity.jp.crt;
-ssl_certificate_key	/etc/nginx/ssl/metacity.jp.key;
-```
-
-
 
 ## To update system
 ```
