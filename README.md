@@ -16,6 +16,14 @@ volumes:
 	- ../ssl/cert:/etc/nginx/ssl
 ```
 
+proxy/conf.d/default.conf:
+```
+listen 443 ssl;
+ssl_certificate		/etc/nginx/ssl/metacity.jp.crt;
+ssl_certificate_key	/etc/nginx/ssl/metacity.jp.key;
+```
+
+
 ## To update system
 ```
 make update
